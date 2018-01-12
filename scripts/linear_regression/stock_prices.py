@@ -44,12 +44,11 @@ clf = LinearRegression()       #LinearRegresion algoritm option n_jobs = .., how
 #clf = svm.SVR()                 #Support vector regression algoritm change kernel=.., default linear
 clf.fit(X_train, y_train)
 
-with open('linearregression.pickle', 'wb') as f:    # save clasefire after training
-    pickle.dump(clf, f)
-
-
-pickle_in = open('linearregression.pickle', 'wb')   # download classefire for using
-clf = pickle.load(pickle_in)
+#with open('linearregression.pickle', 'wb') as f:    # save clasefire after training
+#    pickle.dump(clf, f)
+#
+#pickle_in = open('linearregression.pickle', 'wb')   # download classefire for using
+#clf = pickle.load(pickle_in)
 
 accuracy = clf.score(X_test, y_test)
 

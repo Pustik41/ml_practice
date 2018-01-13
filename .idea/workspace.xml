@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5e62429-015c-458a-b0a2-a82a23e8f2d4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/classification/clustering/Mean_shift_simplr_example.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/classification/clustering/mean_shift_titanic_example.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/classification/clustering/own_k_means.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/classification/clustering/own_mean_shift.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/classification/clustering/k_means_with_titanic_dataset.py" afterPath="$PROJECT_DIR$/scripts/classification/clustering/k_means_with_titanic_dataset.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -321,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515778271610</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added mean_shift">
+      <created>1515857374137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1515857374137</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -373,7 +375,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added knn, swm, clustering k-means" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added knn, swm, clustering k-means" />
+    <MESSAGE value="Added mean_shift" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added mean_shift" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

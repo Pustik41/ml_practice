@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 style.use('ggplot')
 import numpy as np
-from sklearn.cluster import KMeans
+from sklearn.cluster import MeanShift
 from sklearn import preprocessing
 import pandas as pd
 
@@ -25,6 +25,8 @@ home.dest Home/Destination
 
 data_path = "C:/Users/oleksandr.pustovyi/Documents/Udacity/ml_practice/resources/titanic.xls"
 df = pd.read_excel(data_path)
+original_df = pd.DataFrame.copy(df)
+
 df.drop(['body', 'name'], 1, inplace = True)
 df.convert_objects(convert_numeric=True)
 df.fillna(0, inplace=True)
@@ -59,18 +61,35 @@ X = np.array(df.drop(['survived'], 1).astype(float))
 X = preprocessing.scale(X)
 y = np.array(df['survived'])
 
-clf = KMeans(n_clusters=2)
+clf = MeanShift()
 clf.fit(X)
 
-correct = 0
-for i in range(len(X)):
-    predict_me = np.array(X[i].astype(float))
-    predict_me = predict_me.reshape(-1, len(predict_me))
-    prediction = clf.predict(predict_me)
-    if prediction[0] == y[i]:
-        correct += 1
+labels = clf.labels_
+clusters_centers = clf.cluster_centers_
+n_clusters = len(np.unique(labels))
 
-print(float(correct)/len(X))
+original_df['cluster_group'] = np.nan
+
+for i in range(len(X)):
+    original_df['cluster_group'].iloc[i] = labels[i]
+
+survival_rates = {}
+for i in range(n_clusters):
+    temp_df = original_df[ (original_df['cluster_group'] == float(i)) ]
+    survival_cluster = temp_df[ (temp_df['survived'] == 1) ]
+    survival_rate = float(len(survival_cluster))/len(temp_df)
+    survival_rates[i] = survival_rate
+
+print(survival_rates)
+print(original_df[ (original_df['cluster_group'] == 1)])
+print(original_df[ (original_df['cluster_group'] == 0)].describe())
+
+cluster_0 =original_df[ (original_df['cluster_group'] == 0)]
+cluster_0_fc = cluster_0[ (cluster_0['pclass'] == 1) ]          # how many first class passengers survived in o cluster
+
+print(cluster_0_fc.describe())
+
+
 
 
 

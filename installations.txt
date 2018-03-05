@@ -1,3 +1,4 @@
-pip install sklearn
-pip install quandl
 pip install pandas
+pip install scipy
+pip install quandl
+pip install sklearn
